@@ -31,3 +31,9 @@ class RoomAPIMixins(mixins.RetrieveModelMixin, generics.GenericAPIView):
 
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
+
+class MyRoomsList(generics.ListAPIView):
+    serializer_class = RoomSerializer
+
+    def get_queryset(self):
+        return Room.objects.filter()
